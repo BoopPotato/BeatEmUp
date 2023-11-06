@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://btikoyeodssqn"]
+
+[ext_resource type="Texture2D" uid="uid://ci6oga7wjngor" path="res://Placeholders/Player Tile.png" id="1_awctu"]
+[ext_resource type="Script" path="res://Scripts/playermovement.cs" id="2_t8bag"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3n6g"]
+radius = 21.2132
+
+[node name="Player" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_awctu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k3n6g")
+script = ExtResource("2_t8bag")
