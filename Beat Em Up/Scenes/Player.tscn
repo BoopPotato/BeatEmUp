@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://btikoyeodssqn"]
+[gd_scene load_steps=4 format=3 uid="uid://i54b2yj13t44"]
 
-[ext_resource type="Texture2D" uid="uid://ci6oga7wjngor" path="res://Placeholders/Player Tile.png" id="1_awctu"]
-[ext_resource type="Script" path="res://Scripts/playermovement.cs" id="2_t8bag"]
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="1_l4xmw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k3n6g"]
-radius = 21.2132
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vrpyg"]
+radius = 0.3
 
-[node name="Player" type="Area2D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_r75un"]
+top_radius = 0.3
+bottom_radius = 0.3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_awctu")
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_l4xmw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_k3n6g")
-script = ExtResource("2_t8bag")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_vrpyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_r75un")
